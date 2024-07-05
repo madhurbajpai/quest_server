@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 import dotenv from 'dotenv';
+
 dotenv.config();
-const USERNAME = process.env.DB_USERNAME;
-const PASSWORD = process.env.DB_PASSWORD;
+
 const Connection = async () => {
-    const URL = `mongodb+srv://${USERNAME}:${PASSWORD}@quizz.kalhpzm.mongodb.net/?retryWrites=true&w=majority&appName=quizz`;
+    const URL = process.env.DATABASE;
+    // const URL = `mongodb+srv://mdhrbajpai:123abcd@quizz.kalhpzm.mongodb.net/?retryWrites=true&w=majority&appName=quizz`;
     try{
+        console.log("yahan tak to thik hai");
         await mongoose.connect(URL);
         console.log('Database connected successfully');
     } catch(error){

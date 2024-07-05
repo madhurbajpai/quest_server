@@ -43,8 +43,9 @@ export const getAdmin = async (req, res) => {
       return res.status(200).json({ message: "Something is missing" });
     }
 
+    console.log(req.body);
+
     const admin = await Admin.findOne({ email: email });
-    // console.log(admin);
 
     if (!admin) {
       return res.status(200).json({ message: "Admin does not exist" });
